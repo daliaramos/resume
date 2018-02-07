@@ -9,6 +9,15 @@
     <div class="container">
       <h1>Build a Resume!</h1>
       <a href="/new">Add A New Job</a>
+      @foreach (var job in Model)
+      {
+      <h3>Job Title @job.GetJobTitle()</h3>
+      <p>company Name: @job.GetCompanyName()</p>
+      <p>Location: @job.GetLocation()</p>
+      <p>Start Date: @job.GetStartDate()</p>
+      <p>End Date @job.GetEndDate()</p>
+      <p>Discription: @job.GetDescription()</p>
+      }
     </div>
 
   </body>

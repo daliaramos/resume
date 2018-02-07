@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Jobs.Models
 {
   public class Job
@@ -8,6 +11,7 @@ namespace Jobs.Models
     private string _startDate;
     private string _endDate;
     private string _description;
+    private static List<Job> _instances = new List<Job>{};
 
     public Job(string jobTitle, string companyName, string location, string start, string end, string desc)
     {
@@ -17,6 +21,7 @@ namespace Jobs.Models
       _startDate = start;
       _endDate = end;
       _description = desc;
+      _instances.Add(this);
     }
 
     public string GetJobTitle()
@@ -77,6 +82,10 @@ namespace Jobs.Models
     public void SetDescription(string desc)
     {
       _description = desc;
+    }
+    public static List<Job> GetAll()
+    {
+      return _instances;
     }
   }
 

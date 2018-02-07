@@ -10,7 +10,8 @@ namespace Jobs.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View();
+      List<Job> allJobs = Job.GetAll();
+      return View(allJobs);
     }
 
     [HttpGet("/new")]
